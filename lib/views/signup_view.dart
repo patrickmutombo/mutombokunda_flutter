@@ -55,7 +55,7 @@ class _SignUpViewState extends State<SignUpView> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // ... Ton UI reste pareil
+            const SizedBox(height: 60),
 
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -72,10 +72,10 @@ class _SignUpViewState extends State<SignUpView> {
               ),
               child: Column(
                 children: [
-                  const Align(
+                  Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "Sign Up",
+                      "Inscription",
                       style: TextStyle(
                         fontSize: 24,
                         color: Color(0xff0E7C7B),
@@ -89,7 +89,7 @@ class _SignUpViewState extends State<SignUpView> {
                   // EMAIL
                   TextField(
                     controller: emailCtrl,
-                    decoration: _decor("Email", Icons.email_outlined),
+                    decoration: _decor("Adresse email", Icons.email_outlined),
                   ),
 
                   const SizedBox(height: 15),
@@ -98,7 +98,7 @@ class _SignUpViewState extends State<SignUpView> {
                   TextField(
                     controller: passCtrl,
                     obscureText: true,
-                    decoration: _decor("Password", Icons.lock_outline),
+                    decoration: _decor("Mot de passe", Icons.lock_outline),
                   ),
 
                   const SizedBox(height: 15),
@@ -107,7 +107,7 @@ class _SignUpViewState extends State<SignUpView> {
                   TextField(
                     controller: confirmCtrl,
                     obscureText: true,
-                    decoration: _decor("Confirm Password", Icons.lock_outline),
+                    decoration: _decor("Confirmer le mot de passe", Icons.lock_outline),
                   ),
 
                   const SizedBox(height: 15),
@@ -115,7 +115,7 @@ class _SignUpViewState extends State<SignUpView> {
                   // PHONE
                   TextField(
                     controller: phoneCtrl,
-                    decoration: _decor("Phone", Icons.phone),
+                    decoration: _decor("Téléphone", Icons.phone),
                   ),
 
                   const SizedBox(height: 25),
@@ -133,8 +133,10 @@ class _SignUpViewState extends State<SignUpView> {
                       ),
                       child: loading
                           ? const CircularProgressIndicator(color: Colors.white)
-                          : const Text("Sign Up",
-                              style: TextStyle(fontSize: 16)),
+                          : Text(
+                              "S'inscrire",
+                              style: TextStyle(fontSize: 16),
+                            ),
                     ),
                   ),
                 ],

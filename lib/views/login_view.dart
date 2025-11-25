@@ -46,9 +46,7 @@ class _LoginViewState extends State<LoginView> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const SizedBox(height: 60),
-
-            // ... (tout ton code UI reste pareil)
+            SizedBox(height: 60),
 
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -65,10 +63,10 @@ class _LoginViewState extends State<LoginView> {
               ),
               child: Column(
                 children: [
-                  const Align(
+                  Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "Login",
+                      "Se connecter",
                       style: TextStyle(
                         fontSize: 24,
                         color: Color(0xff0E7C7B),
@@ -77,13 +75,13 @@ class _LoginViewState extends State<LoginView> {
                     ),
                   ),
 
-                  const SizedBox(height: 25),
+                  SizedBox(height: 25),
 
                   // EMAIL
                   TextField(
                     controller: emailCtrl,
                     decoration: InputDecoration(
-                      hintText: "Email",
+                      hintText: "Adresse email",
                       prefixIcon: const Icon(Icons.email_outlined),
                       filled: true,
                       fillColor: const Color(0xffF1F5F9),
@@ -94,14 +92,14 @@ class _LoginViewState extends State<LoginView> {
                     ),
                   ),
 
-                  const SizedBox(height: 15),
+                  SizedBox(height: 15),
 
                   // PASSWORD
                   TextField(
                     controller: passwordCtrl,
                     obscureText: true,
                     decoration: InputDecoration(
-                      hintText: "Password",
+                      hintText: "Mot de passe",
                       prefixIcon: const Icon(Icons.lock_outline),
                       filled: true,
                       fillColor: const Color(0xffF1F5F9),
@@ -112,7 +110,7 @@ class _LoginViewState extends State<LoginView> {
                     ),
                   ),
 
-                  const SizedBox(height: 25),
+                  SizedBox(height: 25),
 
                   // BOUTON LOGIN
                   SizedBox(
@@ -128,20 +126,22 @@ class _LoginViewState extends State<LoginView> {
                       ),
                       child: loading
                           ? const CircularProgressIndicator(color: Colors.white)
-                          : const Text("Login",
-                              style: TextStyle(fontSize: 16)),
+                          : Text(
+                              "Se connecter",
+                              style: TextStyle(fontSize: 16),
+                            ),
                     ),
                   ),
 
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20),
 
                   GestureDetector(
                     onTap: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => const SignUpView()));
                     },
-                    child: const Text(
-                      "Don’t have account? Sign Up",
+                    child: Text(
+                      "Vous n'avez pas de compte ? Inscrivez-vous",
                       style: TextStyle(
                         color: Color(0xff0E7C7B),
                         fontWeight: FontWeight.bold,
