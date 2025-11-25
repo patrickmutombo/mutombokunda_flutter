@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../controllers/auth_controller.dart';
 import 'signup_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 
 class LoginView extends StatefulWidget {
@@ -18,6 +20,16 @@ class _LoginViewState extends State<LoginView> {
   final TextEditingController passwordCtrl = TextEditingController();
 
   bool loading = false;
+void openUrl(String url) async {
+  final uri = Uri.parse(url);
+  if (await canLaunchUrl(uri)) {
+    await launchUrl(uri, mode: LaunchMode.externalApplication);
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text("Impossible d'ouvrir le lien")),
+    );
+  }
+}
 
   void login() async {
     setState(() => loading = true);
@@ -136,37 +148,35 @@ class _LoginViewState extends State<LoginView> {
                   ),
 
                   SizedBox(height: 20),
+                  
 SizedBox(height: 25),
 
-// BOUTONS DE CONNEXION SOCIALE
+
 Row(
   mainAxisAlignment: MainAxisAlignment.center,
   children: [
     IconButton(
       icon: FaIcon(FontAwesomeIcons.google, color: Colors.red),
       onPressed: () {
-        // TODO: navigation vers la page Google
-        print("Google cliqué");
+        openUrl("https://accounts.google.com/");
       },
     ),
     IconButton(
       icon: FaIcon(FontAwesomeIcons.facebook, color: Colors.blue),
       onPressed: () {
-        // TODO: navigation vers la page Facebook
-        print("Facebook cliqué");
+        openUrl("https://www.facebook.com/");
       },
     ),
     IconButton(
       icon: FaIcon(FontAwesomeIcons.twitter, color: Colors.lightBlue),
       onPressed: () {
-        // TODO: navigation vers la page Twitter
-        print("Twitter cliqué");
+        openUrl("https://twitter.com/");
       },
     ),
   ],
 ),
 
-SizedBox(height: 20),
+
 
                   GestureDetector(
                     onTap: () {
