@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../controllers/auth_controller.dart';
 import 'signup_view.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -134,6 +136,37 @@ class _LoginViewState extends State<LoginView> {
                   ),
 
                   SizedBox(height: 20),
+SizedBox(height: 25),
+
+// BOUTONS DE CONNEXION SOCIALE
+Row(
+  mainAxisAlignment: MainAxisAlignment.center,
+  children: [
+    IconButton(
+      icon: FaIcon(FontAwesomeIcons.google, color: Colors.red),
+      onPressed: () {
+        // TODO: navigation vers la page Google
+        print("Google cliqué");
+      },
+    ),
+    IconButton(
+      icon: FaIcon(FontAwesomeIcons.facebook, color: Colors.blue),
+      onPressed: () {
+        // TODO: navigation vers la page Facebook
+        print("Facebook cliqué");
+      },
+    ),
+    IconButton(
+      icon: FaIcon(FontAwesomeIcons.twitter, color: Colors.lightBlue),
+      onPressed: () {
+        // TODO: navigation vers la page Twitter
+        print("Twitter cliqué");
+      },
+    ),
+  ],
+),
+
+SizedBox(height: 20),
 
                   GestureDetector(
                     onTap: () {
